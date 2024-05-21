@@ -3,19 +3,27 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['title' => 'Home Page']);
 });
 
 Route::get('/about', function () {
-    return view('about', ['name' => 'Fabianus kevin']);
+    return view('about', [
+        'name' => 'Fabianus kevin',
+        'title' => 'About Page'
+    ]);
 });
 
 Route::get('/blog', function() {
-    return view('blog');
+    return view('blog', [
+        'title' => 'Blog Page'
+    ]);
 });
 
 Route::get('/contact', function() {
-    return view('contact', ['email' => 'fabianuskevin@gmail.com']);
+    return view('contact', [
+    'email' => 'fabianuskevin@gmail.com',
+    'title' => 'Contact Page'
+]);
 });
 
 
