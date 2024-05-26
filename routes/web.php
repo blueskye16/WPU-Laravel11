@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -18,30 +19,8 @@ Route::get('/posts', function () {
     return view(
         'posts',
         [
-            'title' => 'Blog Page',
-            'posts' =>
-                [
-                    [
-                        'id' => '1',
-                        'slug' => 'judul-artikel-1',
-                        'title' => 'Judul Artikel 1',
-                        'author' => 'Fabianus Kevin S',
-                        'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error corrupti, nisi
-                    corporis eos aspernatur ex
-                    laboriosam numquam delectus quisquam repellendus odit incidunt provident ut, accusantium consequatur quo,
-                    debitis sapiente officia.'
-                    ],
-                    [
-                        'id' => '2',
-                        'slug' => 'judul-artikel-2',
-                        'title' => 'Judul Artikel 2',
-                        'author' => 'siapala Kevin S',
-                        'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error corrupti, nisi
-                    corporis eos aspernatur ex
-                    laboriosam numquam delectus quisquam repellendus odit incidunt provident ut, accusantium consequatur quo,
-                    debitis sapiente officia.'
-                    ]
-                ]
+            'title' => 'Blog Page', 
+            'posts' => Post::all()
         ]
     );
 });
@@ -55,36 +34,16 @@ Route::get('/posts', function () {
 */
 
 Route::get('/posts/{slug}', function ($slug) {
-    $posts = [
-        [
-            'id' => '1',
-            'slug' => 'judul-artikel-1',
-            'title' => 'Judul Artikel 1',
-            'author' => 'Fabianus Kevin S',
-            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error corrupti, nisi
-        corporis eos aspernatur ex
-        laboriosam numquam delectus quisquam repellendus odit incidunt provident ut, accusantium consequatur quo,
-        debitis sapiente officia.'
-        ],
-        [
-            'id' => '2',
-            'slug' => 'judul-artikel-2',
-            'title' => 'Judul Artikel 2',
-            'author' => 'siapala Kevin S',
-            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error corrupti, nisi
-        corporis eos aspernatur ex
-        laboriosam numquam delectus quisquam repellendus odit incidunt provident ut, accusantium consequatur quo,
-        debitis sapiente officia.'
-        ]
-    ];
 
-    $post = Arr::first($posts, function ($post) use ($slug) {
-        return $post['slug'] == $slug;
-    });
+    // $post = Arr::first(Post::all(), function ($post) use ($slug) {
+    //     return $post['slug'] == $slug;
+    // });
+    $post = Post::find($slug);
 
     // dd($post); --> ngecek di dump
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
+
 
 Route::get('/contact', function () {
     return view('contact', [
