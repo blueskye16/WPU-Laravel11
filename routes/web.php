@@ -25,22 +25,10 @@ Route::get('/posts', function () {
     );
 });
 
-// Route::get('/posts/{id}', function($id) {
-//     dd($id);
-// });
+Route::get('/posts/{post:slug}', function (Post $post) {
 
-/*
-    /posts/{id} --> variabel id ditangkep yang artinya apapun yang diketik setelah /posts/ bakal ditangkep sebagai {id} dan di return di function $id
-*/
 
-Route::get('/posts/{slug}', function ($slug) {
 
-    // $post = Arr::first(Post::all(), function ($post) use ($slug) {
-    //     return $post['slug'] == $slug;
-    // });
-    $post = Post::find($slug);
-
-    // dd($post); --> ngecek di dump
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
@@ -51,5 +39,7 @@ Route::get('/contact', function () {
         'title' => 'Contact Page'
     ]);
 });
+
+
 
 
