@@ -27,16 +27,14 @@ Route::get('/posts', function () {
 
 Route::get('/posts/{post:slug}', function (Post $post) {
 
-
-
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
 
 Route::get('/contact', function () {
     return view('contact', [
-        'email' => 'fabianuskevin@gmail.com',
-        'title' => 'Contact Page'
+        'title' => 'Contact Page',
+        'email' => 'fabianuskevin@gmail.com'
     ]);
 });
 
