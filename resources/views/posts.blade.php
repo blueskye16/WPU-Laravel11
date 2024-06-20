@@ -12,7 +12,7 @@
                 <a href="/authors/{{ $post->author->username }}"
                     class="text-base text-gray-500 hover:underline">{{ $post->author->name }}</a>
                 in
-                <a href="#" class="text-base text-gray-500 hover:underline">Post Category</a> |
+                <a href="/categories/{{ $post->category->slug }}" class="text-base text-gray-500 hover:underline">{{ $post->category->name }}</a> |
                 {{ $post->created_at->diffForHumans() }}
             </div>
             <p class="my-4 font-light">{{ Str::limit($post['body'], 150) }}</p>
