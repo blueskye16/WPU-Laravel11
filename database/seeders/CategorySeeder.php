@@ -16,17 +16,20 @@ class CategorySeeder extends Seeder
         // Category::factory(3)->create();
         Category::create([
             'name' => 'Front-End Website',
-            'slug' => 'front-end-Website'
+            'slug' => 'front-end-Website',
+            'color' => 'red'
         ]);
 
         Category::create([
             'name' => 'Design Website',
-            'slug' => 'design-website'
+            'slug' => 'design-website',
+            'color' => 'blue'
         ]);
 
         Category::create([
             'name' => 'Data Analyst',
-            'slug' => 'data-analyst'
+            'slug' => 'data-analyst',
+            'color' => 'yellow'
         ]);
     }
 }
