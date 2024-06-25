@@ -37,7 +37,7 @@
                             {{ $post->title }}
                         </h2>
                     </a>
-                    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($post->body, 150) }}</p>
+                    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($post->body, 100) }}</p>
                     <a href="/authors/{{ $post->author->username }}">
                         <div class="flex justify-between items-center">
                             <div class="flex items-center space-x-3">
