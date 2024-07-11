@@ -23,7 +23,7 @@ Route::get('/posts', function () {
         'posts',
         [
             'title' => 'Blog Page',
-            'posts' => Post::filter(request(['search', 'category', 'user']))->latest()->get()
+            'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()
         ]
     );
 });

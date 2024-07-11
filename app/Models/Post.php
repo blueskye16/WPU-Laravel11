@@ -38,9 +38,9 @@ class Post extends Model
         );
 
         $query->when(
-            $filters['user'] ?? false,
-            fn($query, $user) =>
-            $query->whereHas('user', fn($query) => $query->where('slug', $user))
+            $filters['author'] ?? false,
+            fn($query, $author) =>
+            $query->whereHas('author', fn($query) => $query->where('username', $author))
         );
     }
 }

@@ -4,8 +4,8 @@
             @if (request('category'))
                 <input type="hidden" name='category' value='{{ request('category') }}'>
             @endif
-            @if (request('user'))
-                <input type="hidden" name='user' value='{{ request('user') }}'>
+            @if (request('author'))
+                <input type="hidden" name='author' value='{{ request('author') }}'>
             @endif
 
             <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
